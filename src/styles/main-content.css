@@ -20,10 +20,8 @@ h1 {
 }
 
 #screen {
-  height: 600px;
-  width: 1200px;
   background-color: rgb(255, 255, 255);
-  cursor: url(/src/assets/pen-icon.png) 0 30, crosshair;
+  cursor: url(/src/assets/pen-icon.png) 0 30, progress;
 }
 
 .colorArea {

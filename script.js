@@ -2,6 +2,7 @@ let currentColor = "black";
 let canDraw = false;
 let mouseX = 0;
 let mouseY = 0;
+let undoStack = [];
 
 let screen = document.querySelector("#screen");
 let ctx = screen.getContext("2d");
@@ -15,6 +16,12 @@ screen.addEventListener("mousemove", mouseMoveEvent);
 screen.addEventListener("mouseup", mouseUpEvent);
 document.querySelector(".clear").addEventListener("click", clearScreen);
 
+document.addEventListener("keydown", (e) => {
+  if ((e.ctrlKey && e.key === "z") || e.key === "Z") {
+    undoLast();
+  }
+});
+
 function colorClickEvent(e) {
   let color = e.target.getAttribute("data-color");
   currentColor = color;
@@ -27,6 +34,8 @@ function mouseDownEvent(e) {
   canDraw = true;
   mouseX = e.pageX - screen.offsetLeft;
   mouseY = e.pageY - screen.offsetTop;
+
+  saveState();
 }
 
 function mouseMoveEvent(e) {
@@ -59,4 +68,19 @@ function draw(x, y) {
 function clearScreen() {
   ctx.setTransform(1, 0, 0, 1, 0, 0);
   ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+}
+
+function saveState() {
+  undoStack.push(screen.toDataURL());
+}
+
+function undoLast() {
+  if (undoStack.length > 0) {
+    let canvasPic = new Image();
+    canvasPic.src = undoStack.pop();
+    canvasPic.onload = function () {
+      clearScreen();
+      ctx.drawImage(canvasPic, 0, 0);
+    };
+  }
 }

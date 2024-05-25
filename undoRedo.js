@@ -2,9 +2,13 @@ let undoStack = [];
 let redoStack = [];
 
 document.addEventListener("keydown", (e) => {
-  if (e.ctrlKey && e.key.toLowerCase() === "z" && !e.shiftKey) {
+  if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "z" && !e.shiftKey) {
     undoLast();
-  } else if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === "z") {
+  } else if (
+    (e.ctrlKey || e.metaKey) &&
+    e.shiftKey &&
+    e.key.toLowerCase() === "z"
+  ) {
     redoLast();
   }
 });

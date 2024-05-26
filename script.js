@@ -24,11 +24,13 @@ function colorClickEvent(e) {
 }
 
 function mouseDownEvent(e) {
-  canDraw = true;
-  mouseX = e.pageX - screen.offsetLeft;
-  mouseY = e.pageY - screen.offsetTop;
+  if (e.button === 0) {
+    canDraw = true;
+    mouseX = e.pageX - screen.offsetLeft;
+    mouseY = e.pageY - screen.offsetTop;
 
-  saveState();
+    saveState();
+  }
 }
 
 function mouseMoveEvent(e) {

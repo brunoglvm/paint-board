@@ -28,21 +28,28 @@ h1 {
   width: 900px;
   display: flex;
 }
+
 .color {
   margin-top: 1rem;
   flex: 1;
   height: 40px;
   cursor: pointer;
 }
+
 .color.active {
-  border: 5px solid rgb(255, 255, 255);
+  border: 3px solid rgb(255, 255, 255);
 }
 
 .clear {
-  border: 1px solid rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgb(40, 44, 52);
+  border: 1px solid rgb(12, 16, 30);
   color: rgb(255, 255, 255);
   padding: 10px;
   margin-top: 20px;
   cursor: pointer;
+}
+
+.clear:hover {
+  background-color: rgb(33, 38, 48);
+  border: 1px solid rgb(7, 9, 13);
 }

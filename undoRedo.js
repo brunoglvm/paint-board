@@ -13,11 +13,6 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
-function saveState() {
-  undoStack.push(screen.toDataURL());
-  redoStack.length = 0;
-}
-
 function undoLast() {
   if (undoStack.length > 0) {
     redoStack.push(screen.toDataURL());

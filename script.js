@@ -1,5 +1,6 @@
 let currentColor = "black";
 let canDraw = false;
+
 let mouseX = 0;
 let mouseY = 0;
 
@@ -63,4 +64,9 @@ function draw(x, y) {
 function clearScreen() {
   ctx.setTransform(1, 0, 0, 1, 0, 0);
   ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+}
+
+function saveState() {
+  undoStack.push(screen.toDataURL());
+  redoStack.length = 0;
 }

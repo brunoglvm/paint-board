@@ -1,9 +1,7 @@
 let currentColor = "black";
 let canDraw = false;
-
 let mouseX = 0;
 let mouseY = 0;
-
 let screen = document.querySelector("#screen");
 let ctx = screen.getContext("2d");
 
@@ -11,10 +9,13 @@ document.querySelectorAll(".colorArea .color").forEach((item) => {
   item.addEventListener("click", colorClickEvent);
 });
 
+document
+  .querySelector(".clear")
+  .addEventListener("click", () => clearScreen(true));
+
 screen.addEventListener("mousedown", mouseDownEvent);
 screen.addEventListener("mousemove", mouseMoveEvent);
 screen.addEventListener("mouseup", mouseUpEvent);
-document.querySelector(".clear").addEventListener("click", clearScreen);
 
 function colorClickEvent(e) {
   let color = e.target.getAttribute("data-color");
@@ -41,7 +42,10 @@ function mouseMoveEvent(e) {
 }
 
 function mouseUpEvent() {
-  canDraw = false;
+  if (canDraw) {
+    canDraw = false;
+    saveDrawing();
+  }
 }
 
 function draw(x, y) {
@@ -61,9 +65,13 @@ function draw(x, y) {
   mouseY = pointY;
 }
 
-function clearScreen() {
+function clearScreen(clearStorage = false) {
   ctx.setTransform(1, 0, 0, 1, 0, 0);
   ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+
+  if (clearStorage) {
+    localStorage.removeItem("paint-board");
+  }
 }
 
 function saveState() {

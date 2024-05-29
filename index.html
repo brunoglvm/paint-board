@@ -20,7 +20,7 @@
   <body>
     <h1>...</h1>
 
-    <canvas id="screen" height="600" width="1200"></canvas>
+    <canvas id="screen" class="screen" height="600" width="1200"></canvas>
 
     <div class="colorArea">
       <div
@@ -43,7 +43,15 @@
       <div data-color="gray" style="background-color: gray" class="color"></div>
     </div>
 
-    <button class="clear">Clear</button>
+    <button id="clear" class="clear">Clear</button>
+
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <p>Confirm</p>
+        <button id="confirmClear">Confirmed</button>
+        <button id="cancelClear">Cancel</button>
+      </div>
+    </div>
 
     <script src="main.js"></script>
     <script src="undoRedo.js"></script>

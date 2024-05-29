@@ -23,7 +23,7 @@ h1 {
   margin-bottom: 20px;
 }
 
-#screen {
+.screen {
   background-color: var(--canvas-bg-color);
   cursor: url(/src/assets/pen-icon.png) 0 30, progress;
 }
@@ -48,6 +48,7 @@ h1 {
   background-color: var(--button-color);
   border: 1px solid var(--border-color);
   color: var(--text-color);
+  font-weight: 500;
   padding: 10px;
   margin-top: 20px;
   cursor: pointer;

@@ -4,14 +4,30 @@ let mouseX = 0;
 let mouseY = 0;
 let screen = document.querySelector("#screen");
 let ctx = screen.getContext("2d");
+let modal = document.querySelector("#modal");
 
 document.querySelectorAll(".colorArea .color").forEach((item) => {
   item.addEventListener("click", colorClickEvent);
 });
 
-document
-  .querySelector(".clear")
-  .addEventListener("click", () => clearScreen(true));
+document.querySelector("#clear").addEventListener("click", function () {
+  modal.style.display = "block";
+});
+
+document.querySelector("#confirmClear").addEventListener("click", function () {
+  clearScreen(true);
+  modal.style.display = "none";
+});
+
+document.querySelector("#cancelClear").addEventListener("click", function () {
+  modal.style.display = "none";
+});
+
+modal.addEventListener("click", function (e) {
+  if (e.target === modal) {
+    modal.style.display = "none";
+  }
+});
 
 screen.addEventListener("mousedown", mouseDownEvent);
 screen.addEventListener("mousemove", mouseMoveEvent);
@@ -55,6 +71,7 @@ function draw(x, y) {
   ctx.beginPath();
   ctx.lineWidth = 5;
   ctx.lineJoin = "round";
+  ctx.lineCap = "round";
   ctx.moveTo(mouseX, mouseY);
   ctx.lineTo(pointX, pointY);
   ctx.closePath();

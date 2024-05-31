@@ -28,7 +28,7 @@ h1 {
   cursor: url(/src/assets/pen-icon.png) 0 30, progress;
 }
 
-.colorArea {
+.color-area {
   width: 900px;
   display: flex;
 }

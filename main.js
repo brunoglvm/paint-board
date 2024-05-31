@@ -6,12 +6,12 @@ let screen = document.querySelector("#screen");
 let ctx = screen.getContext("2d");
 let modal = document.querySelector("#modal");
 
-document.querySelectorAll(".colorArea .color").forEach((item) => {
+document.querySelectorAll("#colorArea .color").forEach((item) => {
   item.addEventListener("click", colorClickEvent);
 });
 
 document.querySelector("#clear").addEventListener("click", function () {
-  modal.style.display = "block";
+  modal.style.display = "flex";
 });
 
 document.querySelector("#confirmClear").addEventListener("click", function () {

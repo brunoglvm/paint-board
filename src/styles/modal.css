@@ -8,12 +8,56 @@
   height: 100%;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.4);
+  justify-content: center;
+  align-items: center;
 }
 
 .modal-content {
-  background-color: var(--bg-color);
-  margin: 15% auto;
-  padding: 20px;
-  border: 1px solid var(--canvas-bg-color);
+  background-color: var(--modal-bg-color);
+  padding: 2rem;
   width: 80%;
+  max-width: 500px;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+}
+
+.modal-message {
+  color: var(--text-color);
+  font-weight: 400;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.confirm-clear {
+  background-color: var(--button-color);
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+  font-weight: 500;
+  padding: 10px 20px;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+.confirm-clear:hover {
+  background-color: var(--button-color-hover);
+  border: 1px solid var(--border-color-hover);
+}
+
+.cancel-clear {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: var(--text-color);
+  font-weight: 500;
+  padding: 10px 20px;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+.cancel-clear:hover {
+  background-color: rgba(255, 255, 255, 0.2);
 }

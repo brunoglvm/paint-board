@@ -18,11 +18,9 @@
     />
   </head>
   <body>
-    <h1>...</h1>
-
     <canvas id="screen" class="screen" height="600" width="1200"></canvas>
 
-    <div class="colorArea">
+    <div id="colorArea" class="color-area">
       <div
         data-color="black"
         style="background-color: black"
@@ -43,13 +41,19 @@
       <div data-color="gray" style="background-color: gray" class="color"></div>
     </div>
 
-    <button id="clear" class="clear">Clear</button>
+    <button id="clear" class="clear" type="button">Clear</button>
 
     <div id="modal" class="modal">
-      <div class="modal-content">
-        <p>Confirm</p>
-        <button id="confirmClear">Confirmed</button>
-        <button id="cancelClear">Cancel</button>
+      <div id="modalContent" class="modal-content">
+        <p class="modal-message">Confirm clearing content?</p>
+        <div class="button-container">
+          <button id="confirmClear" class="confirm-clear" type="button">
+            Confirm
+          </button>
+          <button id="cancelClear" class="cancel-clear" type="button">
+            Cancel
+          </button>
+        </div>
       </div>
     </div>
 

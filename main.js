@@ -32,6 +32,7 @@ modal.addEventListener("click", function (e) {
 screen.addEventListener("mousedown", mouseDownEvent);
 screen.addEventListener("mousemove", mouseMoveEvent);
 screen.addEventListener("mouseup", mouseUpEvent);
+screen.addEventListener("mouseleave", mouseLeaveEvent);
 
 function colorClickEvent(e) {
   let color = e.target.getAttribute("data-color");
@@ -58,6 +59,13 @@ function mouseMoveEvent(e) {
 }
 
 function mouseUpEvent() {
+  if (canDraw) {
+    canDraw = false;
+    saveDrawing();
+  }
+}
+
+function mouseLeaveEvent() {
   if (canDraw) {
     canDraw = false;
     saveDrawing();

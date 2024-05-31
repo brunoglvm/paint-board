@@ -1,14 +1,9 @@
-let currentColor = "black";
 let canDraw = false;
 let mouseX = 0;
 let mouseY = 0;
 let screen = document.querySelector("#screen");
 let ctx = screen.getContext("2d");
 let modal = document.querySelector("#modal");
-
-document.querySelectorAll("#colorArea .color").forEach((item) => {
-  item.addEventListener("click", colorClickEvent);
-});
 
 document.querySelector("#clear").addEventListener("click", function () {
   modal.style.display = "flex";
@@ -33,6 +28,12 @@ screen.addEventListener("mousedown", mouseDownEvent);
 screen.addEventListener("mousemove", mouseMoveEvent);
 screen.addEventListener("mouseup", mouseUpEvent);
 screen.addEventListener("mouseleave", mouseLeaveEvent);
+
+document.querySelector("#colorPicker").addEventListener("change", function () {
+  let color = this.jscolor.toHEXString();
+  currentColor = color;
+  document.querySelector(".color.active").classList.remove("active");
+});
 
 function colorClickEvent(e) {
   let color = e.target.getAttribute("data-color");
@@ -61,6 +62,7 @@ function mouseMoveEvent(e) {
 function mouseUpEvent() {
   if (canDraw) {
     canDraw = false;
+
     saveDrawing();
   }
 }
@@ -68,6 +70,7 @@ function mouseUpEvent() {
 function mouseLeaveEvent() {
   if (canDraw) {
     canDraw = false;
+
     saveDrawing();
   }
 }

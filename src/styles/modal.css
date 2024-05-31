@@ -23,7 +23,7 @@
 
 .modal-message {
   color: var(--text-color);
-  font-weight: 400;
+  font-weight: var(--font-weight-normal);
 }
 
 .button-container {
@@ -37,7 +37,7 @@
   background-color: var(--button-color);
   border: 1px solid var(--border-color);
   color: var(--text-color);
-  font-weight: 500;
+  font-weight: var(--font-weight-medium);
   padding: 10px 20px;
   margin-top: 1rem;
   cursor: pointer;
@@ -52,7 +52,7 @@
   background-color: rgba(255, 255, 255, 0.1);
   border: none;
   color: var(--text-color);
-  font-weight: 500;
+  font-weight: var(--font-weight-medium);
   padding: 10px 20px;
   margin-top: 1rem;
   cursor: pointer;

@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Paint Board</title>
+
     <link href="./src/styles/reset.css" rel="stylesheet" />
     <link href="./src/styles/vars.css" rel="stylesheet" />
     <link href="./src/styles/main-content.css" rel="stylesheet" />
@@ -16,29 +17,14 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jscolor/2.4.5/jscolor.min.js"></script>
   </head>
   <body>
     <canvas id="screen" class="screen" height="600" width="1200"></canvas>
 
-    <div id="colorArea" class="color-area">
-      <div
-        data-color="black"
-        style="background-color: black"
-        class="color active"
-      ></div>
-      <div data-color="blue" style="background-color: blue" class="color"></div>
-      <div data-color="red" style="background-color: red" class="color"></div>
-      <div
-        data-color="green"
-        style="background-color: green"
-        class="color"
-      ></div>
-      <div
-        data-color="yellow"
-        style="background-color: yellow"
-        class="color"
-      ></div>
-      <div data-color="gray" style="background-color: gray" class="color"></div>
+    <div id="colorPickerContainer" class="color-area">
+      <input class="jscolor" id="colorPicker" value="000000" />
     </div>
 
     <button id="clear" class="clear" type="button">Clear</button>

@@ -19,37 +19,39 @@ body * {
   color: var(--text-color);
 }
 
-h1 {
-  margin-bottom: 20px;
-}
-
 .screen {
   background-color: var(--canvas-bg-color);
   cursor: url(/src/assets/pen-icon.png) 0 30, progress;
 }
 
-.color-area {
-  width: 900px;
-  display: flex;
-}
-
-.color {
-  margin-top: 1rem;
-  flex: 1;
-  height: 40px;
+.jscolor {
+  background-color: var(--button-color);
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+  font-weight: var(--font-weight-medium);
+  outline: none;
+  padding: 10px 20px;
+  margin-top: 20px;
   cursor: pointer;
 }
 
-.color.active {
-  border: 3px solid var(--canvas-bg-color);
+.jscolor:hover {
+  background-color: var(--button-color-hover);
+  border: 1px solid var(--border-color-hover);
+}
+
+.jscolor:focus {
+  background-color: var(--button-color-hover);
+  border: 1px solid var(--border-color-hover);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
 }
 
 .clear {
   background-color: var(--button-color);
   border: 1px solid var(--border-color);
   color: var(--text-color);
-  font-weight: 500;
-  padding: 10px;
+  font-weight: var(--font-weight-medium);
+  padding: 10px 20px;
   margin-top: 20px;
   cursor: pointer;
 }

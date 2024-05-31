@@ -10,4 +10,7 @@
   --canvas-bg-color: rgb(255, 255, 255);
   --modal-bg-color: rgb(58, 66, 85);
   --bg-color: rgb(47, 56, 75);
+
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
 }

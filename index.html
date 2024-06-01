@@ -19,12 +19,13 @@
     />
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jscolor/2.4.5/jscolor.min.js"></script>
+    <script src="jscolor.config.js"></script>
   </head>
   <body>
     <canvas id="screen" class="screen" height="600" width="1200"></canvas>
 
-    <div id="colorPickerContainer" class="color-area">
-      <input class="jscolor" id="colorPicker" value="000000" />
+    <div id="colorArea" class="color-area">
+      <input id="colorPicker" class="jscolor" value="000000" />
     </div>
 
     <button id="clear" class="clear" type="button">Clear</button>

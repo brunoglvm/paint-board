@@ -40,11 +40,7 @@ body * {
   cursor: pointer;
 }
 
-.jscolor:hover {
-  background-color: var(--button-color-hover);
-  border: 1px solid var(--border-color-hover);
-}
-
+.jscolor:hover,
 .jscolor:focus {
   background-color: var(--button-color-hover);
   border: 1px solid var(--border-color-hover);
@@ -55,12 +51,14 @@ body * {
   border: 1px solid var(--border-color);
   color: var(--text-color);
   font-weight: var(--font-weight-medium);
+  outline: none;
   padding: 10px 20px;
   margin-top: 20px;
   cursor: pointer;
 }
 
-.clear:hover {
+.clear:hover,
+.clear:focus-visible {
   background-color: var(--button-color-hover);
   border: 1px solid var(--border-color-hover);
 }

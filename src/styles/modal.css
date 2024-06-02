@@ -38,12 +38,14 @@
   border: 1px solid var(--border-color);
   color: var(--text-color);
   font-weight: var(--font-weight-medium);
+  outline: none;
   padding: 10px 20px;
   margin-top: 1rem;
   cursor: pointer;
 }
 
-.confirm-clear:hover {
+.confirm-clear:hover,
+.confirm-clear:focus-visible {
   background-color: var(--button-color-hover);
   border: 1px solid var(--border-color-hover);
 }
@@ -53,11 +55,13 @@
   border: none;
   color: var(--text-color);
   font-weight: var(--font-weight-medium);
+  outline: none;
   padding: 10px 20px;
   margin-top: 1rem;
   cursor: pointer;
 }
 
-.cancel-clear:hover {
+.cancel-clear:hover,
+.cancel-clear:focus-visible {
   background-color: rgba(255, 255, 255, 0.2);
 }

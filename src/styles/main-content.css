@@ -24,11 +24,6 @@ body * {
   cursor: url(/src/assets/pen-icon.png) 0 30, progress;
 }
 
-.color-area {
-  width: 1200px;
-  max-width: 100%;
-}
-
 .jscolor {
   background-color: var(--button-color);
   border: 1px solid var(--border-color);

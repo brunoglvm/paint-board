@@ -26,6 +26,7 @@ body * {
 
 .color-area {
   width: 1200px;
+  max-width: 100%;
 }
 
 .jscolor {
@@ -47,7 +48,6 @@ body * {
 .jscolor:focus {
   background-color: var(--button-color-hover);
   border: 1px solid var(--border-color-hover);
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
 }
 
 .clear {

@@ -17,14 +17,11 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jscolor/2.4.5/jscolor.min.js"></script>
-    <script src="jscolor.config.js"></script>
   </head>
   <body>
     <canvas id="screen" class="screen" height="600" width="1200"></canvas>
 
-    <div id="colorArea" class="color-area">
+    <div class="color-area">
       <input id="colorPicker" class="jscolor" value="000000" />
     </div>
 
@@ -44,6 +41,8 @@
       </div>
     </div>
 
+    <script src="jscolor.min.js"></script>
+    <script src="jscolor.config.js"></script>
     <script src="main.js"></script>
     <script src="undoRedo.js"></script>
     <script src="localStorage.js"></script>

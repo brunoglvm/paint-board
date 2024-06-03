@@ -1,0 +1,16 @@
+.drawing-tools {
+  position: relative;
+}
+
+.tooltip {
+  display: none;
+  position: absolute;
+  background-color: var(--button-color-hover);
+  border: 1px solid var(--border-color-hover);
+  color: var(--text-color);
+  text-align: center;
+  padding: 5px;
+  font-size: 12px;
+  white-space: nowrap;
+  z-index: 1;
+}

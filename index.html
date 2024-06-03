@@ -10,6 +10,7 @@
     <link href="./src/styles/vars.css" rel="stylesheet" />
     <link href="./src/styles/main-content.css" rel="stylesheet" />
     <link href="./src/styles/modal.css" rel="stylesheet" />
+    <link href="./src/styles/tooltips.css" rel="stylesheet" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -21,9 +22,9 @@
   <body>
     <canvas id="screen" class="screen" height="600" width="1200"></canvas>
 
-    <div class="drawing-tools">
+    <div class="drawing-tools tooltips">
       <input id="colorPicker" class="jscolor" value="000000" />
-      <button id="clear" class="clear" type="button">
+      <button id="clear" class="clear" data-tooltip-clear="Clear" type="button">
         <img src="./src/assets/trash-solid.svg" alt="Trash Icon" />
       </button>
     </div>
@@ -44,6 +45,7 @@
 
     <script src="jscolor.min.js"></script>
     <script src="jscolor.config.js"></script>
+    <script src="toolTips.js"></script>
     <script src="main.js"></script>
     <script src="undoRedo.js"></script>
     <script src="localStorage.js"></script>

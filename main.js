@@ -2,6 +2,9 @@ let canDraw = false;
 let mouseX = 0;
 let mouseY = 0;
 let currentColor = "#000000";
+let undoStack = [];
+let redoStack = [];
+
 const screen = document.querySelector("#screen");
 const ctx = screen.getContext("2d");
 const modal = document.querySelector("#modal");
@@ -33,15 +36,27 @@ screen.addEventListener("mouseleave", mouseLeaveEvent);
 document.querySelector("#colorPicker").addEventListener("change", function () {
   let color = this.jscolor.toHEXString();
   currentColor = color;
-  document.querySelector(".color.active").classList.remove("active");
+
+  localStorage.setItem("selected-color", currentColor);
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const savedColor = localStorage.getItem("selected-color");
+  if (savedColor) {
+    currentColor = savedColor;
+    document.querySelector("#colorPicker").jscolor.fromString(savedColor);
+  }
+
+  loadDrawing();
 });
 
 function colorClickEvent(e) {
   let color = e.target.getAttribute("data-color");
   currentColor = color;
-
   document.querySelector(".color.active").classList.remove("active");
   e.target.classList.add("active");
+
+  localStorage.setItem("selected-color", currentColor);
 }
 
 function mouseDownEvent(e) {
@@ -49,7 +64,6 @@ function mouseDownEvent(e) {
     canDraw = true;
     mouseX = e.pageX - screen.offsetLeft;
     mouseY = e.pageY - screen.offsetTop;
-
     saveState();
   }
 }
@@ -63,7 +77,6 @@ function mouseMoveEvent(e) {
 function mouseUpEvent() {
   if (canDraw) {
     canDraw = false;
-
     saveDrawing();
   }
 }
@@ -71,7 +84,6 @@ function mouseUpEvent() {
 function mouseLeaveEvent() {
   if (canDraw) {
     canDraw = false;
-
     saveDrawing();
   }
 }
@@ -79,7 +91,6 @@ function mouseLeaveEvent() {
 function draw(x, y) {
   let pointX = x - screen.offsetLeft;
   let pointY = y - screen.offsetTop;
-
   ctx.beginPath();
   ctx.lineWidth = 5;
   ctx.lineJoin = "round";
@@ -89,7 +100,6 @@ function draw(x, y) {
   ctx.closePath();
   ctx.strokeStyle = currentColor;
   ctx.stroke();
-
   mouseX = pointX;
   mouseY = pointY;
 }

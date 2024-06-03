@@ -1,6 +1,3 @@
-let undoStack = [];
-let redoStack = [];
-
 document.addEventListener("keydown", (e) => {
   if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "z" && !e.shiftKey) {
     undoLast();

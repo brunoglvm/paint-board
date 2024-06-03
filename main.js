@@ -2,9 +2,9 @@ let canDraw = false;
 let mouseX = 0;
 let mouseY = 0;
 let currentColor = "#000000";
-let screen = document.querySelector("#screen");
-let ctx = screen.getContext("2d");
-let modal = document.querySelector("#modal");
+const screen = document.querySelector("#screen");
+const ctx = screen.getContext("2d");
+const modal = document.querySelector("#modal");
 
 document.querySelector("#clear").addEventListener("click", function () {
   modal.style.display = "flex";

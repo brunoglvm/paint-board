@@ -1,9 +1,3 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
   display: flex;
   align-items: center;
@@ -25,6 +19,7 @@ body * {
   cursor: url(/src/assets/pen-icon.png) 0 30, progress;
 }
 
+.btn,
 .jscolor {
   background-color: var(--button-color);
   border: 1px solid var(--border-color);
@@ -32,29 +27,14 @@ body * {
   font-weight: var(--font-weight-medium);
   outline: none;
   padding: 10px 20px;
-  margin-top: 20px;
+  margin-top: 1rem;
   cursor: pointer;
 }
 
 .jscolor:hover,
-.jscolor:focus {
-  background-color: var(--button-color-hover);
-  border: 1px solid var(--border-color-hover);
-}
-
-.clear {
-  background-color: var(--button-color);
-  border: 1px solid var(--border-color);
-  color: var(--text-color);
-  font-weight: var(--font-weight-medium);
-  outline: none;
-  padding: 10px 20px;
-  margin-top: 20px;
-  cursor: pointer;
-}
-
-.clear:hover,
-.clear:focus-visible {
+.jscolor:focus,
+.btn:hover,
+.btn:focus-visible {
   background-color: var(--button-color-hover);
   border: 1px solid var(--border-color-hover);
 }

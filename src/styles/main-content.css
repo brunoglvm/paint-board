@@ -31,10 +31,10 @@ body * {
   cursor: pointer;
 }
 
-.jscolor:hover,
-.jscolor:focus,
 .btn:hover,
-.btn:focus-visible {
+.btn:focus-visible,
+.jscolor:hover,
+.jscolor:focus {
   background-color: var(--button-color-hover);
   border: 1px solid var(--border-color-hover);
 }

@@ -24,16 +24,24 @@
 
     <div class="drawing-tools tooltips">
       <input id="colorPicker" class="jscolor" value="000000" />
-      <button id="clear" class="clear" data-tooltip-clear="Clear" type="button">
+      <button id="save" class="btn btn-save" type="button">
+        <img src="./src/assets/floppy-disk-solid.svg" alt="Floppy Disk Icon" />
+      </button>
+      <button
+        id="clear"
+        class="btn btn-clear"
+        data-tooltip-clear="Clear"
+        type="button"
+      >
         <img src="./src/assets/trash-solid.svg" alt="Trash Icon" />
       </button>
     </div>
 
     <div id="modal" class="modal">
       <div id="modalContent" class="modal-content">
-        <p class="modal-message">Confirm clearing content?</p>
-        <div class="button-container">
-          <button id="confirmClear" class="confirm-clear" type="button">
+        <p class="modal-msg">Confirm clearing content?</p>
+        <div class="modal-btns">
+          <button id="confirmClear" class="btn confirm-clear" type="button">
             Confirm
           </button>
           <button id="cancelClear" class="cancel-clear" type="button">

@@ -18,6 +18,38 @@ document.querySelector("#confirmClear").addEventListener("click", function () {
   modal.style.display = "none";
 });
 
+document.querySelector("#save").addEventListener("click", async function () {
+  const image = await screen.toDataURL("image/png");
+
+  if (window.showSaveFilePicker) {
+    const options = {
+      suggestedName: "paint-board.png",
+      types: [
+        {
+          description: "PNG file",
+          accept: {
+            "image/png": [".png"],
+          },
+        },
+      ],
+    };
+
+    try {
+      const handle = await window.showSaveFilePicker(options);
+      const writable = await handle.createWritable();
+      await writable.write(await (await fetch(image)).blob());
+      await writable.close();
+    } catch (err) {
+      console.error("An error occurred while saving the file:", err);
+    }
+  } else {
+    const link = document.createElement("a");
+    link.href = image;
+    link.download = "paint-board.png";
+    link.click();
+  }
+});
+
 document.querySelector("#cancelClear").addEventListener("click", function () {
   modal.style.display = "none";
 });

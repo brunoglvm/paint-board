@@ -1,10 +1,13 @@
-.drawing-tools {
+.btn-save,
+.btn-clear {
   position: relative;
 }
 
-.tooltip {
+.save-tooltip,
+.clear-tooltip {
   display: none;
   position: absolute;
+  z-index: 10;
   top: 100%;
   left: 50%;
   transform: translateX(-50%);

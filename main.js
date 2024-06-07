@@ -1,7 +1,9 @@
 let canDraw = false;
+let canErase = false;
 let mouseX = 0;
 let mouseY = 0;
-let currentColor = "#000000";
+let currentColor = "rgb(0, 0, 0)";
+const backgroundColor = "rgb(255, 255, 255)";
 const undoStack = [];
 const redoStack = [];
 
@@ -33,6 +35,7 @@ function initializeEvents() {
   document
     .querySelector("#colorPicker")
     .addEventListener("change", changeColor);
+  document.querySelector("#erase").addEventListener("click", toggleEraser);
   document.addEventListener("DOMContentLoaded", loadInitialSettings);
 }
 
@@ -71,6 +74,18 @@ function changeColor() {
   localStorage.setItem("selected-color", currentColor);
 }
 
+function toggleEraser() {
+  canErase = !canErase;
+  if (canErase) {
+    currentColor = backgroundColor;
+  } else {
+    const savedColor = localStorage.getItem("selected-color");
+    if (savedColor) {
+      currentColor = savedColor;
+    }
+  }
+}
+
 function draw(x, y) {
   const pointX = x - screen.offsetLeft;
   const pointY = y - screen.offsetTop;
@@ -90,6 +105,8 @@ function draw(x, y) {
 function clearScreen(clearStorage = false) {
   ctx.setTransform(1, 0, 0, 1, 0, 0);
   ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+  ctx.fillStyle = backgroundColor;
+  ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
   if (clearStorage) {
     localStorage.removeItem("paint-board");

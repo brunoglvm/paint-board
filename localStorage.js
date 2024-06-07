@@ -1,5 +1,3 @@
-loadDrawing();
-
 function saveDrawing() {
   const dataURL = screen.toDataURL();
   localStorage.setItem("paint-board", dataURL);
@@ -13,3 +11,5 @@ function loadDrawing() {
     img.onload = () => ctx.drawImage(img, 0, 0);
   }
 }
+
+loadDrawing();

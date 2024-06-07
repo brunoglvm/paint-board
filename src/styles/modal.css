@@ -38,6 +38,7 @@
   border: none;
   color: var(--text-color);
   font-weight: var(--font-weight-medium);
+  text-align: center;
   outline: none;
   padding: 10px 20px;
   margin-top: 1rem;

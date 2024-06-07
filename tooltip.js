@@ -1,17 +1,24 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const clearButton = document.getElementById("clear");
-  const tooltipText = clearButton.getAttribute("data-tooltip-clear");
+  const clearButton = document.querySelector("#clear");
+  const clearTooltip = clearButton.querySelector("#clearTooltip");
+  setupTooltip(clearButton, clearTooltip);
 
-  const tooltip = document.createElement("div");
-  tooltip.className = "tooltip";
-  tooltip.textContent = tooltipText;
-  clearButton.appendChild(tooltip);
+  const saveButton = document.querySelector("#save");
+  const saveTooltip = saveButton.querySelector("#saveTooltip");
+  setupTooltip(saveButton, saveTooltip);
 
-  clearButton.addEventListener("mouseenter", function () {
-    tooltip.style.display = "block";
-  });
+  function setupTooltip(button, tooltip) {
+    let tooltipTimeout;
 
-  clearButton.addEventListener("mouseleave", function () {
-    tooltip.style.display = "none";
-  });
+    button.addEventListener("mouseenter", function () {
+      tooltipTimeout = setTimeout(function () {
+        tooltip.style.display = "block";
+      }, 500);
+    });
+
+    button.addEventListener("mouseleave", function () {
+      clearTimeout(tooltipTimeout);
+      tooltip.style.display = "none";
+    });
+  }
 });

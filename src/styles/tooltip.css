@@ -5,12 +5,16 @@
 .tooltip {
   display: none;
   position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
   background-color: var(--button-color-hover);
-  border: 1px solid var(--border-color-hover);
   color: var(--text-color);
-  text-align: center;
-  padding: 5px;
+  font-weight: var(--font-weight-normal);
   font-size: 12px;
+  text-align: center;
+  padding: 6px;
+  margin-top: 12px;
   white-space: nowrap;
-  z-index: 1;
+  opacity: 0.6;
 }

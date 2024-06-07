@@ -22,18 +22,15 @@
   <body>
     <canvas id="screen" class="screen" height="600" width="1200"></canvas>
 
-    <div class="drawing-tools tooltips">
+    <div class="drawing-tools">
       <input id="colorPicker" class="jscolor" value="000000" />
       <button id="save" class="btn btn-save" type="button">
         <img src="./src/assets/floppy-disk-solid.svg" alt="Floppy Disk Icon" />
+        <div id="saveTooltip" class="tooltip">Save as image</div>
       </button>
-      <button
-        id="clear"
-        class="btn btn-clear"
-        data-tooltip-clear="Clear"
-        type="button"
-      >
+      <button id="clear" class="btn btn-clear" type="button">
         <img src="./src/assets/trash-solid.svg" alt="Trash Icon" />
+        <div id="clearTooltip" class="tooltip">Clear</div>
       </button>
     </div>
 

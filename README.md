@@ -1,1 +1,1 @@
-Pen Icon by: [Design Contest](http://www.designcontest.com)
+Pen and Eraser cursors by: [Design Contest](http://www.designcontest.com)

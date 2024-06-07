@@ -16,7 +16,7 @@ body * {
 
 .screen {
   background-color: var(--canvas-bg-color);
-  cursor: url(/src/assets/pen-icon.png) 0 30, progress;
+  cursor: url(/src/assets/pen-cursor.png) 0 30, progress;
 }
 
 .btn,

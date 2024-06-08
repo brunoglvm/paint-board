@@ -19,6 +19,13 @@ body * {
   cursor: url(/src/assets/pen-cursor.png) 0 30, progress;
 }
 
+.drawing-tools {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
 .btn,
 .jscolor {
   background-color: var(--button-color);

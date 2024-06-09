@@ -88,11 +88,11 @@ function toggleEraser() {
   } else {
     const savedColor = localStorage.getItem("selected-color");
     screen.style.cursor = "url(/src/assets/pen-cursor.png) 0 30, progress";
+    eraserIcon.style.display = "inline";
+    penIcon.style.display = "none";
     if (savedColor) {
       currentColor = savedColor;
     }
-    eraserIcon.style.display = "inline";
-    penIcon.style.display = "none";
   }
 }
 

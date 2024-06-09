@@ -76,21 +76,33 @@ function changeColor() {
 
 function toggleEraser() {
   canErase = !canErase;
+
+  const eraserIcon = document.querySelector("#eraserIcon");
+  const penIcon = document.querySelector("#penIcon");
+
   if (canErase) {
     currentColor = backgroundColor;
+    screen.style.cursor = "url(/src/assets/eraser-cursor.png) 0 30, progress";
+    eraserIcon.style.display = "none";
+    penIcon.style.display = "inline";
   } else {
     const savedColor = localStorage.getItem("selected-color");
+    screen.style.cursor = "url(/src/assets/pen-cursor.png) 0 30, progress";
     if (savedColor) {
       currentColor = savedColor;
     }
+    eraserIcon.style.display = "inline";
+    penIcon.style.display = "none";
   }
 }
 
 function draw(x, y) {
+  const penLineWidth = 5;
+  const eraserLineWidth = 10;
   const pointX = x - screen.offsetLeft;
   const pointY = y - screen.offsetTop;
   ctx.beginPath();
-  ctx.lineWidth = 5;
+  ctx.lineWidth = canErase ? eraserLineWidth : penLineWidth;
   ctx.lineJoin = "round";
   ctx.lineCap = "round";
   ctx.moveTo(mouseX, mouseY);

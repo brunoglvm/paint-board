@@ -16,7 +16,7 @@ body * {
 
 .screen {
   background-color: var(--canvas-bg-color);
-  cursor: url(/src/assets/pen-cursor.png) 0 30, progress;
+  cursor: url(../assets/pen-cursor.png) 0 30, progress;
 }
 
 .drawing-tools {
@@ -45,4 +45,8 @@ body * {
 .jscolor:focus {
   background-color: var(--button-color-hover);
   border: 1px solid var(--border-color-hover);
+}
+
+.pen-icon {
+  display: none;
 }

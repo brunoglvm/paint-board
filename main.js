@@ -28,10 +28,17 @@ function initializeEvents() {
       modal.style.display = "none";
     }
   });
+
   screen.addEventListener("mousedown", mouseDownEvent);
   screen.addEventListener("mousemove", mouseMoveEvent);
   screen.addEventListener("mouseup", mouseUpEvent);
   screen.addEventListener("mouseleave", mouseLeaveEvent);
+
+  screen.addEventListener("touchstart", touchStartEvent);
+  screen.addEventListener("touchmove", touchMoveEvent);
+  screen.addEventListener("touchend", touchEndEvent);
+  screen.addEventListener("touchcancel", touchCancelEvent);
+
   document
     .querySelector("#colorPicker")
     .addEventListener("change", changeColor);
@@ -41,27 +48,72 @@ function initializeEvents() {
 
 function mouseDownEvent(e) {
   if (e.button === 0) {
-    canDraw = true;
-    mouseX = e.pageX - screen.offsetLeft;
-    mouseY = e.pageY - screen.offsetTop;
-    saveState();
+    startDrawing(e.pageX, e.pageY);
   }
 }
 
 function mouseMoveEvent(e) {
-  if (canDraw) {
-    draw(e.pageX, e.pageY);
-  }
+  draw(e.pageX, e.pageY);
 }
 
 function mouseUpEvent() {
-  if (canDraw) {
-    canDraw = false;
-    saveDrawing();
-  }
+  endDrawing();
 }
 
 function mouseLeaveEvent() {
+  endDrawing();
+}
+
+function touchStartEvent(e) {
+  if (e.touches.length === 1) {
+    const touch = e.touches[0];
+    startDrawing(touch.pageX, touch.pageY);
+  }
+}
+
+function touchMoveEvent(e) {
+  if (e.touches.length === 1) {
+    const touch = e.touches[0];
+    draw(touch.pageX, touch.pageY);
+  }
+}
+
+function touchEndEvent() {
+  endDrawing();
+}
+
+function touchCancelEvent() {
+  endDrawing();
+}
+
+function startDrawing(x, y) {
+  canDraw = true;
+  mouseX = x - screen.offsetLeft;
+  mouseY = y - screen.offsetTop;
+  saveState();
+}
+
+function draw(x, y) {
+  if (canDraw) {
+    const pointX = x - screen.offsetLeft;
+    const pointY = y - screen.offsetTop;
+    const penLineWidth = 5;
+    const eraserLineWidth = 10;
+    ctx.beginPath();
+    ctx.lineWidth = canErase ? eraserLineWidth : penLineWidth;
+    ctx.lineJoin = "round";
+    ctx.lineCap = "round";
+    ctx.moveTo(mouseX, mouseY);
+    ctx.lineTo(pointX, pointY);
+    ctx.closePath();
+    ctx.strokeStyle = currentColor;
+    ctx.stroke();
+    mouseX = pointX;
+    mouseY = pointY;
+  }
+}
+
+function endDrawing() {
   if (canDraw) {
     canDraw = false;
     saveDrawing();
@@ -98,24 +150,6 @@ function toggleEraser() {
       currentColor = savedColor;
     }
   }
-}
-
-function draw(x, y) {
-  const penLineWidth = 5;
-  const eraserLineWidth = 10;
-  const pointX = x - screen.offsetLeft;
-  const pointY = y - screen.offsetTop;
-  ctx.beginPath();
-  ctx.lineWidth = canErase ? eraserLineWidth : penLineWidth;
-  ctx.lineJoin = "round";
-  ctx.lineCap = "round";
-  ctx.moveTo(mouseX, mouseY);
-  ctx.lineTo(pointX, pointY);
-  ctx.closePath();
-  ctx.strokeStyle = currentColor;
-  ctx.stroke();
-  mouseX = pointX;
-  mouseY = pointY;
 }
 
 function clearScreen(clearStorage = false) {

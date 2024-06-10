@@ -72,6 +72,10 @@ function changeColor() {
   const color = this.jscolor.toHEXString();
   currentColor = color;
   localStorage.setItem("selected-color", currentColor);
+
+  if (canErase) {
+    toggleEraser();
+  }
 }
 
 function toggleEraser() {

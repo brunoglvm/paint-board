@@ -72,6 +72,7 @@ function touchStartEvent(e) {
 }
 
 function touchMoveEvent(e) {
+  e.preventDefault();
   if (e.touches.length === 1) {
     const touch = e.touches[0];
     draw(touch.pageX, touch.pageY);

@@ -3,37 +3,18 @@
     font-size: 18px;
   }
 
-  .screen {
-    display: flex;
-  }
-
   .drawing-tools {
-    gap: 0.5rem;
+    gap: 2rem;
+    margin-top: 3rem;
   }
 
   .jscolor,
   .btn-erase,
   .btn-save,
   .btn-clear {
-    width: 100%;
-    padding: 10px;
-    box-sizing: border-box;
-  }
-
-  .tooltip {
-    display: none !important;
-  }
-}
-
-@media (max-width: 480px) {
-  body * {
-    font-size: 20px;
-  }
-
-  .btn,
-  .jscolor {
-    font-size: 16px;
-    padding: 8px;
+    width: 80%;
+    padding: 12px;
+    margin: 0 auto;
   }
 
   .btn img {
@@ -41,11 +22,7 @@
     height: 20px;
   }
 
-  .drawing-tools {
-    gap: 0.25rem;
-  }
-
-  .modal-content {
-    padding: 10px;
+  .tooltip {
+    display: none !important;
   }
 }

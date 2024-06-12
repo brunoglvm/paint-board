@@ -46,14 +46,27 @@ function initializeEvents() {
   document.addEventListener("DOMContentLoaded", loadInitialSettings);
 }
 
+function getMousePos(e) {
+  const rect = screen.getBoundingClientRect();
+  const scaleX = screen.width / rect.width;
+  const scaleY = screen.height / rect.height;
+
+  return {
+    x: (e.clientX - rect.left) * scaleX,
+    y: (e.clientY - rect.top) * scaleY,
+  };
+}
+
 function mouseDownEvent(e) {
   if (e.button === 0) {
-    startDrawing(e.pageX, e.pageY);
+    const pos = getMousePos(e);
+    startDrawing(pos.x, pos.y);
   }
 }
 
 function mouseMoveEvent(e) {
-  draw(e.pageX, e.pageY);
+  const pos = getMousePos(e);
+  draw(pos.x, pos.y);
 }
 
 function mouseUpEvent() {
@@ -67,7 +80,8 @@ function mouseLeaveEvent() {
 function touchStartEvent(e) {
   if (e.touches.length === 1) {
     const touch = e.touches[0];
-    startDrawing(touch.pageX, touch.pageY);
+    const pos = getMousePos(touch);
+    startDrawing(pos.x, pos.y);
   }
 }
 
@@ -75,7 +89,8 @@ function touchMoveEvent(e) {
   e.preventDefault();
   if (e.touches.length === 1) {
     const touch = e.touches[0];
-    draw(touch.pageX, touch.pageY);
+    const pos = getMousePos(touch);
+    draw(pos.x, pos.y);
   }
 }
 
@@ -89,15 +104,13 @@ function touchCancelEvent() {
 
 function startDrawing(x, y) {
   canDraw = true;
-  mouseX = x - screen.offsetLeft;
-  mouseY = y - screen.offsetTop;
+  mouseX = x;
+  mouseY = y;
   saveState();
 }
 
 function draw(x, y) {
   if (canDraw) {
-    const pointX = x - screen.offsetLeft;
-    const pointY = y - screen.offsetTop;
     const penLineWidth = 5;
     const eraserLineWidth = 10;
     ctx.beginPath();
@@ -105,12 +118,12 @@ function draw(x, y) {
     ctx.lineJoin = "round";
     ctx.lineCap = "round";
     ctx.moveTo(mouseX, mouseY);
-    ctx.lineTo(pointX, pointY);
+    ctx.lineTo(x, y);
     ctx.closePath();
     ctx.strokeStyle = currentColor;
     ctx.stroke();
-    mouseX = pointX;
-    mouseY = pointY;
+    mouseX = x;
+    mouseY = y;
   }
 }
 

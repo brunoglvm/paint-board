@@ -17,6 +17,8 @@ body * {
 .screen {
   background-color: var(--canvas-bg-color);
   cursor: url(../assets/pen-cursor.png) 0 30, progress;
+  width: 100%;
+  max-width: 1200px;
 }
 
 .drawing-tools {

@@ -2,6 +2,7 @@ let canDraw = false;
 let canErase = false;
 let mouseX = 0;
 let mouseY = 0;
+let currentDrawing = null;
 let currentColor = "rgb(0, 0, 0)";
 const backgroundColor = "rgb(255, 255, 255)";
 const undoStack = [];
@@ -29,6 +30,8 @@ function initializeEvents() {
     }
   });
 
+  window.addEventListener("resize", setCanvasSize);
+
   screen.addEventListener("mousedown", mouseDownEvent);
   screen.addEventListener("mousemove", mouseMoveEvent);
   screen.addEventListener("mouseup", mouseUpEvent);
@@ -45,6 +48,30 @@ function initializeEvents() {
   document.querySelector("#erase").addEventListener("click", toggleEraser);
   document.addEventListener("DOMContentLoaded", loadInitialSettings);
 }
+
+function setCanvasSize() {
+  currentDrawing = new Image();
+  currentDrawing.src = screen.toDataURL();
+
+  const windowWidth = window.innerWidth;
+  let canvasHeight = 1200;
+
+  if (windowWidth >= 768) {
+    canvasHeight = 600;
+  }
+
+  screen.width = 1200;
+  screen.height = canvasHeight;
+
+  if (currentDrawing) {
+    currentDrawing.onload = function () {
+      ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+      ctx.drawImage(currentDrawing, 0, 0);
+    };
+  }
+}
+
+setCanvasSize();
 
 function getMousePos(e) {
   const rect = screen.getBoundingClientRect();

@@ -26,6 +26,10 @@
     height: 20px;
   }
 
+  .modal {
+    overflow: hidden;
+  }
+
   .modal-content {
     width: 70%;
   }

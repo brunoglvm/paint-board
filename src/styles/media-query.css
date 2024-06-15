@@ -1,4 +1,8 @@
 @media (max-width: 768px) {
+  body {
+    margin: 10% 0;
+  }
+
   body * {
     font-size: 18px;
   }
@@ -20,6 +24,10 @@
   .btn img {
     width: 20px;
     height: 20px;
+  }
+
+  .modal-content {
+    width: 70%;
   }
 
   .tooltip {

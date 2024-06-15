@@ -16,17 +16,21 @@ function initializeEvents() {
   document.querySelector("#save").addEventListener("click", saveImage);
   document.querySelector("#clear").addEventListener("click", () => {
     modal.style.display = "flex";
+    document.body.style.overflow = "hidden";
   });
   document.querySelector("#confirmClear").addEventListener("click", () => {
     clearScreen(true);
     modal.style.display = "none";
+    document.body.style.overflow = "auto";
   });
   document.querySelector("#cancelClear").addEventListener("click", () => {
     modal.style.display = "none";
+    document.body.style.overflow = "auto";
   });
   modal.addEventListener("click", (e) => {
     if (e.target === modal) {
       modal.style.display = "none";
+      document.body.style.overflow = "auto";
     }
   });
 

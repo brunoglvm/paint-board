@@ -5,6 +5,7 @@ body {
   flex-direction: column;
   background-color: var(--bg-color);
   min-height: 100vh;
+  overflow: auto;
 }
 
 body * {

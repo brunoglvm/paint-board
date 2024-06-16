@@ -15,6 +15,23 @@ body * {
   color: var(--text-color);
 }
 
+body::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--button-color);
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: var(--button-color-hover);
+}
+
 .screen {
   background-color: var(--canvas-bg-color);
   cursor: url(../assets/pen-cursor.png) 0 30, progress;

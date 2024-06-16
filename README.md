@@ -2,7 +2,7 @@
 
 # paint-board-js
 
-Canvas drawing application built with Vanilla JavaScript, utilizing the <span style="color:red">jscolor library</span>. It includes functionalities such as <span style="color:green">undo (Ctrl/Cmd + Z), redo (Ctrl/Cmd + Shift + Z)</span> shortcuts, and saves user drawings locally using <span style="color:blue">localStorage</span>.
+Canvas drawing application built with Vanilla JavaScript, utilizing the **jscolor library**. It includes functionalities such as **undo (Ctrl/Cmd + Z), redo (Ctrl/Cmd + Shift + Z)** shortcuts, and saves user drawings locally using **localStorage**.
 
 ## Techs
 

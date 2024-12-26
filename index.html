@@ -30,22 +30,25 @@
       <button id="erase" class="btn btn-erase" type="button">
         <img
           id="eraserIcon"
-          src="./src/assets/eraser-icon.svg"
+          src="./src/assets/icons/eraser-icon.svg"
           alt="Eraser Icon"
         />
         <img
           id="penIcon"
           class="pen-icon"
-          src="./src/assets/pen-icon.svg"
+          src="./src/assets/icons/pen-icon.svg"
           alt="Pen Icon"
         />
       </button>
       <button id="save" class="btn btn-save" type="button">
-        <img src="./src/assets/floppy-disk-icon.svg" alt="Floppy Disk Icon" />
+        <img
+          src="./src/assets/icons/floppy-disk-icon.svg"
+          alt="Floppy Disk Icon"
+        />
         <div id="saveTooltip" class="tooltip save-tooltip">Save as image</div>
       </button>
       <button id="clear" class="btn btn-clear" type="button">
-        <img src="./src/assets/trash-icon.svg" alt="Trash Icon" />
+        <img src="./src/assets/icons/trash-icon.svg" alt="Trash Icon" />
         <div id="clearTooltip" class="tooltip clear-tooltip">Clear</div>
       </button>
     </div>
@@ -64,11 +67,11 @@
       </div>
     </div>
 
-    <script src="jscolor.min.js"></script>
-    <script src="jscolor.config.js"></script>
-    <script src="tooltip.js"></script>
-    <script src="main.js"></script>
-    <script src="undoRedo.js"></script>
-    <script src="localStorage.js"></script>
+    <script src="src/libs/jscolor/jscolor.min.js"></script>
+    <script src="src/libs/jscolor/jscolor.config.js"></script>
+    <script src="src/js/jstooltip.js"></script>
+    <script src="src/js/main.js"></script>
+    <script src="src/js/undoRedo.js"></script>
+    <script src="src/js/localStorage.js"></script>
   </body>
 </html>

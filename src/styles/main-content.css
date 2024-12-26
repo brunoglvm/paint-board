@@ -34,7 +34,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 .screen {
   background-color: var(--canvas-bg-color);
-  cursor: url(../assets/pen-cursor.png) 0 30, progress;
+  cursor: url(../assets/cursors/pen-cursor.png) 0 30, progress;
   width: 100%;
   max-width: 1200px;
 }
